@@ -77,7 +77,7 @@ public class SecondLargestSecondSmallest {
 //
 //        return arr[ssmalestIndex];
 
-//        approach - 3 time complexity O(   n)
+//        approach - 3 time complexity O(n)
         int smallest = arr[0],ssmalest = Integer.MAX_VALUE;
         for(int i=0;i<n;i++){
             if(arr[i]<smallest){

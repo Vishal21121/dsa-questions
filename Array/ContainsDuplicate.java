@@ -1,15 +1,10 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ContainsDuplicate {
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(3);
-        arr.add(4);
-        arr.add(5);
-        arr.add(6);
-        System.out.println(remove_2(arr,arr.size()));
+        int[] arr = new int[]{1,2,3,1,3};
+        System.out.println(containsDuplicate(arr));
     }
 
 //    if creating new array is allowed
@@ -24,15 +19,16 @@ public class ContainsDuplicate {
         return false;
     }
 
-//    if creating new array is not allowed
-        static int remove_2(ArrayList<Integer> arr, int n){
-            int uniqueIndex = 0;
-            for(int i=1;i<n;i++){
-                if(arr.get(i)!=arr.get(uniqueIndex)){
-                    arr.set(uniqueIndex+1,arr.get(i));
-                    uniqueIndex = uniqueIndex + 1;
-                }
+    public boolean containsDuplicate_1(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            if(map.get(arr[i])!=null){
+                return true;
+            }else{
+                map.put(arr[i],i);
             }
-            return uniqueIndex+1;
         }
+        return false;
+    }
+
 }
